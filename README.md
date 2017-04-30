@@ -2,20 +2,20 @@
 ### Extremely easy setup
 Gradle
 ```gradle
-compile 'com.suhel.restadapter:rest-adapter:1.0'
+compile 'com.suhel.restadapter:rest-adapter:3.0'
 ```
 Maven
 ```xml
 <dependency>
     <groupId>com.suhel.restadapter</groupId>
     <artifactId>rest-adapter</artifactId>
-    <version>1.0</version>
+    <version>3.0</version>
     <type>pom</type>
 </dependency>
 ```
 Ivy
 ```xml
-<dependency org='com.suhel.restadapter' name='rest-adapter' rev='1.0'>
+<dependency org='com.suhel.restadapter' name='rest-adapter' rev='3.0'>
   <artifact name='rest-adapter' ext='pom' ></artifact>
 </dependency>
 ```
@@ -120,4 +120,27 @@ argsMap.put("pageNo", "2");
 adapter.setArgsMap(argsMap);
 adapter.fetch();
 ```
-As simple as that
+##### Incoming JSON contains fields in different paths
+For example, the `email` parameter is in a different path and the `body` is in another
+Update the JSON
+###### my_json.json
+```json
+{
+  "baseURL": "https://reqres.in/api",
+  "projections": {
+    "posts": {
+      "requestPath": "/users?page={pageNo}",
+      "responsePath": "/data",
+      "viewId": "item_card",
+      "viewMap": {
+        "basic/email": "tvTitle",
+        "details/body": "tvBody"
+      },
+      "dataTypeMap": {
+        "basic/email": "text",
+        "details/body": "text"
+      }
+    }
+  }
+}
+```
