@@ -2,7 +2,7 @@
 ### Extremely easy setup
 Gradle
 ```gradle
-compile 'com.suhel.restadapter:rest-adapter:3.0'
+compile 'com.suhel.restadapter:rest-adapter:4.0'
 ```
 Maven
 ```xml
