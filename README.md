@@ -55,6 +55,16 @@ list.setLayoutManager(new LinearLayoutManager(this));
 list.setAdapter(adapter);
 adapter.fetch();
 ```
+##### Additionally you can use the setOnClickListener() on the adapter for speed
+```java
+adapter.setOnClickListener(new RESTAdapter.OnClickListener() {
+    
+    @Override
+    public void onClick(int position) {
+        handleClick(position);
+    }
+});
+```
 ### Customization
 ##### Different response path
 For example, the JSON array resides in a sub node inside the JSON response sent from server
